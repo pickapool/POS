@@ -123,9 +123,9 @@ namespace PosSystem
         {
             try
             {
-                if ((double.Parse(txtChange.Text) < 0) || (txtChange.Text == String.Empty))
+                if ((double.Parse(txtChange.Text) < 0) || (String.IsNullOrEmpty(txtChange.Text)))
                 {
-                    MessageBox.Show("Insufficient amount.Please enter the corrent amount!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Insufficient amount.Please enter the correct amount!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 else
@@ -133,7 +133,7 @@ namespace PosSystem
                     for (int i = 0; i < fpos.dataGridView1.Rows.Count; i++)
                     {
                         cn.Open();
-                        cm = new SqlCommand("update TblProduct1 set qty = qty - " + int.Parse(fpos.dataGridView1.Rows[i].Cells[5].Value.ToString()) + " where pcode = '" + fpos.dataGridView1.Rows[i].Cells[2].Value.ToString() + "'", cn);
+                        cm = new SqlCommand("update TblProduct1 set qty = qty - " + double.Parse(fpos.dataGridView1.Rows[i].Cells[5].Value.ToString()) + " where pcode = '" + fpos.dataGridView1.Rows[i].Cells[2].Value.ToString() + "'", cn);
                         cm.ExecuteNonQuery();
                         cn.Close();
 
@@ -158,7 +158,8 @@ namespace PosSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Insufficient amount.Please enter the correct amount!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Insufficient amount.Please enter the correct amount!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

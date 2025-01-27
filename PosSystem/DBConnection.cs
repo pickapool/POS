@@ -20,7 +20,7 @@ namespace PosSystem
 
         public string MyConnection()
         {
-            con = @"Data Source=DESKTOP-RR7R80D\SQLEXPRESS;Initial Catalog=POS_DB;Integrated Security=True";
+            con = @"Data Source=localhost;Initial Catalog=POS_DB;Integrated Security=True";
             return con;
 
         }
@@ -86,12 +86,25 @@ namespace PosSystem
         public double StockOnHand()
         {
 
-            cn = new SqlConnection();
-            cn.ConnectionString = con;
-            cn.Open();
-            cm = new SqlCommand("select isnull(sum(qty),0) as qty from TblProduct1 ", cn);
-            Stockonhand = int.Parse(cm.ExecuteScalar().ToString());
-            cn.Close();
+            try
+            {
+                cn.Open();
+                cm = new SqlCommand("SELECT ISNULL(SUM(qty), 0) AS qty FROM TblProduct1", cn);
+                object result = cm.ExecuteScalar();
+                Stockonhand = result != null ? Convert.ToInt32(result) : 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            finally
+            {
+                if (cn.State == System.Data.ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
+
             return Stockonhand;
 
         }

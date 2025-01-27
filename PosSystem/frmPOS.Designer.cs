@@ -77,7 +77,7 @@ namespace PosSystem
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColAdd = new System.Windows.Forms.DataGridViewImageColumn();
@@ -557,9 +557,9 @@ namespace PosSystem
             this.LblUser.ForeColor = System.Drawing.Color.White;
             this.LblUser.Location = new System.Drawing.Point(565, 29);
             this.LblUser.Name = "LblUser";
-            this.LblUser.Size = new System.Drawing.Size(73, 20);
+            this.LblUser.Size = new System.Drawing.Size(95, 20);
             this.LblUser.TabIndex = 3;
-            this.LblUser.Text = "Ds Studio";
+            this.LblUser.Text = "POS SYSTEM";
             this.LblUser.Visible = false;
             this.LblUser.Click += new System.EventHandler(this.LblUser_Click);
             // 
@@ -570,9 +570,9 @@ namespace PosSystem
             this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(120, 29);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(73, 20);
+            this.lblName.Size = new System.Drawing.Size(95, 20);
             this.lblName.TabIndex = 2;
-            this.lblName.Text = "Ds Studio";
+            this.lblName.Text = "POS SYSTEM";
             this.lblName.Click += new System.EventHandler(this.lblName_Click);
             // 
             // lblDisplayTotal
@@ -617,7 +617,7 @@ namespace PosSystem
             this.Column8,
             this.Column3,
             this.Column4,
-            this.Column5,
+            this.colQty,
             this.Column7,
             this.Column6,
             this.ColAdd,
@@ -639,8 +639,9 @@ namespace PosSystem
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(931, 319);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
             // Column1
             // 
@@ -678,14 +679,14 @@ namespace PosSystem
             this.Column4.Name = "Column4";
             this.Column4.Width = 73;
             // 
-            // Column5
+            // colQty
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column5.HeaderText = "QTY";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 61;
+            this.colQty.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colQty.HeaderText = "QTY";
+            this.colQty.Name = "colQty";
+            this.colQty.Width = 61;
             // 
             // Column7
             // 
@@ -793,7 +794,6 @@ namespace PosSystem
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(936, 338);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(245, 201);
@@ -876,22 +876,22 @@ namespace PosSystem
         public System.Windows.Forms.Label lblName;
         public System.Windows.Forms.Label LblUser;
         public MetroFramework.Controls.MetroTextBox txtQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewImageColumn ColAdd;
-        private System.Windows.Forms.DataGridViewImageColumn ColRemove;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         public System.Windows.Forms.Label lblAddress;
         public System.Windows.Forms.Label lblSname;
         public System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewImageColumn ColAdd;
+        private System.Windows.Forms.DataGridViewImageColumn ColRemove;
+        private System.Windows.Forms.DataGridViewImageColumn Delete;
     }
 }

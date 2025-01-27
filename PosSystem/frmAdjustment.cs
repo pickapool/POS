@@ -18,7 +18,7 @@ namespace PosSystem
         DBConnection db = new DBConnection();
         SqlDataReader dr;
         Form1 f;
-        int _qty = 0;
+        double _qty = 0;
         public frmAdjustment(Form1 f)
         {
             InitializeComponent();
@@ -73,8 +73,8 @@ namespace PosSystem
             if(colName =="Select")
             {
                 txtPcode.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-               txtdesc.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString() +" " + dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                _qty = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
+                txtdesc.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString() +" " + dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                _qty = double.TryParse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString(), out _qty) ? _qty : 0;
             }
         }
 

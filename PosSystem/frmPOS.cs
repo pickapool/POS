@@ -17,15 +17,15 @@ namespace PosSystem
     {
         string id;
         string price;
-        
+
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
         string stitle = "Pos System";
-        int qty;
+        double qty;
         frmUserLogin f;
-       
+
 
         public frmPOS(frmUserLogin frm)
         {
@@ -49,7 +49,7 @@ namespace PosSystem
             dr.Read();
             if (dr.HasRows)
             {
-               
+
                 lblAddress.Text = dr["address"].ToString();
                 lblSname.Text = dr["store"].ToString();
                 lblPhone.Text = dr["phone"].ToString();
@@ -62,11 +62,11 @@ namespace PosSystem
         {
             double discount = Double.Parse(lblDiscount.Text);
             double subTot = Double.Parse(lblTotal.Text);
-            double sales = Double.Parse(lblTotal.Text) - discount; 
+            double sales = Double.Parse(lblTotal.Text) - discount;
             double vat = sales * dbcon.GetVal();
             double vatble = sales - vat;
             lblDisplayTotal.Text = vatble.ToString("#,##0.00");
-          //  lblTotal.Text = sales.ToString("#,000.00");
+            //  lblTotal.Text = sales.ToString("#,000.00");
             lblVat.Text = vat.ToString("#,##0.00");
             lblVatable.Text = vatble.ToString("#,##0.00");
 
@@ -126,16 +126,16 @@ namespace PosSystem
             }
             else if (colName == "ColAdd")
             {
-                int i = 0;
+                double i = 0;
                 cn.Open();
                 cm = new SqlCommand("select sum(qty) as qty from TblProduct1 where  pcode like'" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "' group by pcode", cn);
-                i = int.Parse(cm.ExecuteScalar().ToString());
+                i = double.Parse(cm.ExecuteScalar().ToString());
                 cn.Close();
 
-                if (int.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString()) < i)
+                if (double.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString()) < i)
                 {
 
-                    cn.Open(); cm = new SqlCommand("update tblCart1 set qty = qty +" + int.Parse(txtQty.Text) + " where transno like '" + lblTransno.Text + "' and pcode like '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'", cn);
+                    cn.Open(); cm = new SqlCommand("update tblCart1 set qty = qty +" + double.Parse(txtQty.Text) + " where transno like '" + lblTransno.Text + "' and pcode like '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'", cn);
                     cm.ExecuteNonQuery();
                     cn.Close();
 
@@ -152,16 +152,16 @@ namespace PosSystem
             }
             else if (colName == "ColRemove")
             {
-                int i = 0;
+                double i = 0;
                 cn.Open();
                 cm = new SqlCommand("select sum(qty) as qty from tblCart1 where  pcode like'" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "' and transno like '" + lblTransno.Text + "' group by transno, pcode", cn);
-                i = int.Parse(cm.ExecuteScalar().ToString());
+                i = double.Parse(cm.ExecuteScalar().ToString());
                 cn.Close();
 
                 if (i > 1)
                 {
 
-                    cn.Open(); cm = new SqlCommand("update tblCart1 set qty = qty  - " + int.Parse(txtQty.Text) + " where transno like '" + lblTransno.Text + "' and pcode like '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'", cn);
+                    cn.Open(); cm = new SqlCommand("update tblCart1 set qty = qty  - " + double.Parse(txtQty.Text) + " where transno like '" + lblTransno.Text + "' and pcode like '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'", cn);
                     cm.ExecuteNonQuery();
                     cn.Close();
 
@@ -173,8 +173,41 @@ namespace PosSystem
                 return;
 
             }
+            else if (colName == "colQty")
+            {
+                /*double newQty = 0;
+
+                if (double.TryParse(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out newQty) && newQty > 0)
+                {
+                    double stockQty = 0;
+
+                    cn.Open();
+                    cm = new SqlCommand("select sum(qty) as qty from TblProduct1 where pcode like'" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "' group by pcode", cn);
+                    stockQty = double.Parse(cm.ExecuteScalar().ToString());
+                    cn.Close();
+
+                    if (newQty <= stockQty)
+                    {
+                        cn.Open();
+                        cm = new SqlCommand("update tblCart1 set qty = " + newQty + " where transno like '" + lblTransno.Text + "' and pcode like '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'", cn);
+                        cm.ExecuteNonQuery();
+                        cn.Close();
+                        LoadCart();
+
+                        MessageBox.Show("Quantity updated successfully.", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Quantity exceeds available stock! Available stock is " + stockQty, "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid quantity.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }*/
+            }
         }
-                public void GetTransNo()
+        public void GetTransNo()
         {
             try
             {
@@ -210,7 +243,7 @@ namespace PosSystem
 
         private void btnTrans_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.Rows.Count > 0)
+            if (dataGridView1.Rows.Count > 0)
             {
                 return;
             }
@@ -232,23 +265,25 @@ namespace PosSystem
                 else
                 {
                     String _pcode;
-                      double _price;
-                      int _qty;
-                       cn.Open();
+                    double _price;
+                    double _qty;
+                    cn.Open();
                     cm = new SqlCommand("select * from TblProduct1 where barcode like '" + txtSearch.Text + "'", cn);
                     dr = cm.ExecuteReader();
                     dr.Read();
                     if (dr.HasRows)
                     {
-                        qty = int.Parse(dr["qty"].ToString());
+                        qty = double.Parse(dr["qty"].ToString());
+
                         _pcode = dr["pcode"].ToString();
                         _price = double.Parse(dr["price"].ToString());
-                        _qty = int.Parse(txtQty.Text);
+                        _qty = double.Parse(txtQty.Text);
+                        txtQty.Text = _qty.ToString();
 
                         dr.Close();
                         cn.Close();
                         AddToCart(_pcode, _price, _qty);
-                      
+
                     }
                     else
                     {
@@ -277,22 +312,22 @@ namespace PosSystem
                 double total = 0;
                 double discount = 0;
                 cn.Open();
-                cm= new SqlCommand("select c.id, c.pcode,p.pdesc,c.price,c.qty,c.disc,c.total from tblCart1 as c inner join  TblProduct1 as p on c.pcode = p.pcode where transno like '" + lblTransno.Text + "'and status like 'pending'", cn);
+                cm = new SqlCommand("select c.id, c.pcode,p.pdesc,c.price,c.qty,c.disc,c.total from tblCart1 as c inner join  TblProduct1 as p on c.pcode = p.pcode where transno like '" + lblTransno.Text + "'and status like 'pending'", cn);
                 dr = cm.ExecuteReader();
                 while (dr.Read())
                 {
                     i++;
                     total += Double.Parse(dr["total"].ToString());
                     discount += Double.Parse(dr["disc"].ToString());
-                    dataGridView1.Rows.Add(i,dr["id"].ToString(),dr["pcode"].ToString(),dr["pdesc"].ToString(),dr["price"].ToString(),dr["qty"].ToString(),dr["disc"].ToString(),Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
+                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
                     hasrecord = true;
                 }
                 dr.Close();
                 cn.Close();
-                lblDiscount .Text = discount.ToString("#,000.00");
+                lblDiscount.Text = discount.ToString("#,000.00");
                 lblTotal.Text = total.ToString("#,##0.00");
                 GetCartTotal();
-                if(hasrecord == true) { btnSattle.Enabled = true; btnDiscount.Enabled = true; btnCancel.Enabled = true; } else { btnSattle.Enabled = false; btnDiscount.Enabled = false; btnCancel.Enabled = false; }
+                if (hasrecord == true) { btnSattle.Enabled = true; btnDiscount.Enabled = true; btnCancel.Enabled = true; } else { btnSattle.Enabled = false; btnDiscount.Enabled = false; btnCancel.Enabled = false; }
 
 
             }
@@ -302,13 +337,13 @@ namespace PosSystem
                 cn.Close();
             }
         }
-        private void AddToCart( string _pcode, double _price , int _qty)
+        private void AddToCart(string _pcode, double _price, double _qty)
         {
             bool found = false;
-            int cart_qty = 0;
+            double cart_qty = 0;
             cn.Open();
             cm = new SqlCommand("select * from tblCart1 where transno = @transno and pcode = @pcode", cn);
-            cm.Parameters.AddWithValue("@transno",lblTransno.Text);
+            cm.Parameters.AddWithValue("@transno", lblTransno.Text);
             cm.Parameters.AddWithValue("@pcode", _pcode);
             dr = cm.ExecuteReader();
             dr.Read();
@@ -316,7 +351,7 @@ namespace PosSystem
             {
                 found = true;
                 id = dr["id"].ToString();
-                cart_qty = int.Parse(dr["qty"].ToString());
+                cart_qty = double.Parse(dr["qty"].ToString());
             }
             else { found = false; }
             dr.Close();
@@ -324,22 +359,22 @@ namespace PosSystem
 
             if (found == true)
             {
-                if (qty < (int.Parse(txtQty.Text) + cart_qty))
+                if (qty < (double.Parse(txtQty.Text) + cart_qty))
                 {
                     MessageBox.Show("Unable to proceed. Remaning qty on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 cn.Open();
-                cm = new SqlCommand("update tblCart1  set qty =  (qty+ " +_qty+ ")  where id= '" + id + "'", cn);
+                cm = new SqlCommand("update tblCart1  set qty =  (qty+ " + _qty + ")  where id= '" + id + "'", cn);
 
                 cm.ExecuteNonQuery();
                 cn.Close();
 
                 txtSearch.SelectionStart = 0;
                 txtSearch.SelectionLength = txtSearch.Text.Length;
-               LoadCart();
-                this.Dispose();
+                LoadCart();
+                //this.Dispose();
             }
             else
             {
@@ -356,13 +391,13 @@ namespace PosSystem
                 cm.Parameters.AddWithValue("@price", _price);
                 cm.Parameters.AddWithValue("@qty", _qty);
                 cm.Parameters.AddWithValue("@sdate", DateTime.Now);
-                cm.Parameters.AddWithValue("@cashier",LblUser.Text);
+                cm.Parameters.AddWithValue("@cashier", LblUser.Text);
                 cm.ExecuteNonQuery();
                 cn.Close();
 
                 txtSearch.SelectionStart = 0;
                 txtSearch.SelectionLength = txtSearch.Text.Length;
-               LoadCart();
+                LoadCart();
                 //this.Dispose();
             }
         }
@@ -386,17 +421,17 @@ namespace PosSystem
             frm.lblID.Text = id;
             frm.txtPrice.Text = price;
             frm.ShowDialog();
-           
-                
+
+
         }
-        
+
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             int i = dataGridView1.CurrentRow.Index;
             id = dataGridView1[1, i].Value.ToString();
             price = dataGridView1[7, i].Value.ToString();
-          
+
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -441,8 +476,8 @@ namespace PosSystem
             frm.cbCashier.Enabled = false;
             frm.cbCashier.Text = LblUser.Text;
             frm.ShowDialog();
-          
-          
+
+
 
         }
 
@@ -453,12 +488,12 @@ namespace PosSystem
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count >0 )
+            if (dataGridView1.Rows.Count > 0)
             {
                 MessageBox.Show("Unable to Logout.Please cancel the transaction.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (MessageBox.Show("Logout Application?","Logout",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            if (MessageBox.Show("Logout Application?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Hide();
                 frmUserLogin frm = new frmUserLogin();
@@ -495,11 +530,11 @@ namespace PosSystem
             {
                 btnChange_Click(sender, e);
             }
-            if(e.KeyCode == Keys.F6)
+            if (e.KeyCode == Keys.F6)
             {
                 btnSales_Click(sender, e);
             }
-            if(e.KeyCode == Keys.F10)
+            if (e.KeyCode == Keys.F10)
             {
                 btnClose_Click(sender, e);
             }
@@ -508,23 +543,23 @@ namespace PosSystem
             {
                 btnSattle_Click(sender, e);
             }
-            else if(e.KeyCode == Keys.F8 )
+            else if (e.KeyCode == Keys.F8)
             {
                 txtSearch.SelectionStart = 0;
                 txtSearch.SelectionLength = txtSearch.Text.Length;
             }
-           
+
         }
 
         private void btnChange_Click(object sender, EventArgs e)
         {
             frmChangePaasword frm = new frmChangePaasword(this);
-           frm. ShowDialog();
+            frm.ShowDialog();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Remove items from card?","Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Question) ==DialogResult.Yes)
+            if (MessageBox.Show("Remove items from card?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 cn.Open();
                 cm = new SqlCommand("delete from tblCart1 where transno like '" + lblTransno.Text + "'", cn);
@@ -539,5 +574,78 @@ namespace PosSystem
         {
 
         }
+        private object oldQtyValue;
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
+
+            if (colName == "colQty")
+            {
+                // Get the new value entered by the user in the cell
+                double newQty = 0;
+
+                // Ensure the entered value is a valid number
+                if (double.TryParse(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString(), out newQty) && newQty > 0)
+                {
+                    string pcode = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(); // Get product code
+                    double stockQty = 0;
+
+                    // Retrieve available stock for the product
+                    using (var cn = new SqlConnection(dbcon.MyConnection()))
+                    {
+                        cn.Open();
+                        using (var cm = new SqlCommand("SELECT SUM(qty) as qty FROM TblProduct1 WHERE pcode = @pcode GROUP BY pcode", cn))
+                        {
+                            cm.Parameters.AddWithValue("@pcode", pcode);
+                            stockQty = Convert.ToDouble(cm.ExecuteScalar());
+                        }
+                    }
+
+                    // Ensure the new quantity doesn't exceed available stock
+                    if (newQty <= stockQty)
+                    {
+                        // Update the quantity in the database
+                        using (var cn = new SqlConnection(dbcon.MyConnection()))
+                        {
+                            cn.Open();
+                            using (var cm = new SqlCommand("UPDATE tblCart1 SET qty = @qty WHERE transno = @transno AND pcode = @pcode", cn))
+                            {
+                                cm.Parameters.AddWithValue("@qty", newQty);
+                                cm.Parameters.AddWithValue("@transno", lblTransno.Text);
+                                cm.Parameters.AddWithValue("@pcode", pcode);
+                                cm.ExecuteNonQuery();
+                            }
+                        }
+
+                        // Optionally reload the cart to reflect changes
+                        LoadCart();
+
+                        MessageBox.Show("Quantity updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Quantity exceeds available stock! Available stock is {stockQty}.", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        // Revert to the old value if out of stock
+                        dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldQtyValue;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid quantity.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    // Revert to the old valid quantity
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldQtyValue;
+                }
+            }
+        }
+
+        private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "colQty")
+            {
+                oldQtyValue = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            }
+        }
     }
-}
+ }

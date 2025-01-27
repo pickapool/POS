@@ -20,7 +20,7 @@ namespace PosSystem
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr;
         DBConnection dbcon = new DBConnection();
-        // string store = "Ds Studio Software Solution";
+        // string store = "POS SYSTEM Software Solution";
         // string address = "258/B Colombo9,Srilanka";
         frmPOS f;
 
