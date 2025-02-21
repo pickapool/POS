@@ -18,7 +18,7 @@ namespace PosSystem
         SqlDataReader dr;
         private String pcode;
         private double price;
-       private int qty;
+        private double qty;
         private String transno;
         DBConnection dbcon = new DBConnection();
         string stitle = "PosSystem";
@@ -36,7 +36,7 @@ namespace PosSystem
         {
 
         }
-        public void ProductDetails(String pcode, double price ,String transno, int qty)
+        public void ProductDetails(String pcode, double price ,String transno, double qty)
         {
             this.pcode = pcode;
             this.price = price;

@@ -85,7 +85,7 @@ namespace PosSystem
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 21);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Serach Product";
+            this.label2.Text = "Search Product";
             // 
             // panel2
             // 

@@ -62,7 +62,7 @@ namespace PosSystem
             if(colName == "Select")
             {
                 frmQty frm = new frmQty(f);
-                frm.ProductDetails(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(),Double.Parse( dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()), f.lblTransno.Text, int.Parse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString())); 
+                frm.ProductDetails(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(),Double.Parse( dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString()), f.lblTransno.Text, Double.Parse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString())); 
                 frm.ShowDialog();
             }
         }
