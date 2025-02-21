@@ -67,6 +67,7 @@ namespace PosSystem
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblSname = new System.Windows.Forms.Label();
+            this.LblUser = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblDisplayTotal = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -90,7 +91,6 @@ namespace PosSystem
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.LblUser = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -424,8 +424,7 @@ namespace PosSystem
             // 
             // panel6
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel6.Controls.Add(this.lblVat);
             this.panel6.Controls.Add(this.lblVatable);
@@ -561,6 +560,19 @@ namespace PosSystem
             this.lblSname.TabIndex = 21;
             this.lblSname.Text = "label4";
             this.lblSname.Visible = false;
+            // 
+            // LblUser
+            // 
+            this.LblUser.AutoSize = true;
+            this.LblUser.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUser.ForeColor = System.Drawing.Color.White;
+            this.LblUser.Location = new System.Drawing.Point(565, 29);
+            this.LblUser.Name = "LblUser";
+            this.LblUser.Size = new System.Drawing.Size(95, 20);
+            this.LblUser.TabIndex = 3;
+            this.LblUser.Text = "POS SYSTEM";
+            this.LblUser.Visible = false;
+            this.LblUser.Click += new System.EventHandler(this.LblUser_Click);
             // 
             // lblName
             // 
@@ -807,19 +819,6 @@ namespace PosSystem
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
-            // 
-            // LblUser
-            // 
-            this.LblUser.AutoSize = true;
-            this.LblUser.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUser.ForeColor = System.Drawing.Color.White;
-            this.LblUser.Location = new System.Drawing.Point(565, 29);
-            this.LblUser.Name = "LblUser";
-            this.LblUser.Size = new System.Drawing.Size(95, 20);
-            this.LblUser.TabIndex = 3;
-            this.LblUser.Text = "POS SYSTEM";
-            this.LblUser.Visible = false;
-            this.LblUser.Click += new System.EventHandler(this.LblUser_Click);
             // 
             // frmPOS
             // 
