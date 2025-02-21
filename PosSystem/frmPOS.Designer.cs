@@ -322,7 +322,6 @@ namespace PosSystem
             this.txtQty.MaxLength = 32767;
             this.txtQty.Name = "txtQty";
             this.txtQty.PasswordChar = '\0';
-            this.txtQty.PromptText = "Qty";
             this.txtQty.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtQty.SelectedText = "";
             this.txtQty.SelectionLength = 0;
@@ -370,7 +369,6 @@ namespace PosSystem
             this.txtSearch.MaxLength = 32767;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
-            this.txtSearch.PromptText = "Scan Barcode Here";
             this.txtSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtSearch.SelectedText = "";
             this.txtSearch.SelectionLength = 0;

@@ -18,7 +18,6 @@ namespace PosSystem
 
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
-        SqlDataReader dr;
         DBConnection dbcon = new DBConnection();
         frmSoldItems f;
         

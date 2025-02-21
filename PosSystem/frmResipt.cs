@@ -18,7 +18,6 @@ namespace PosSystem
        
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
-        SqlDataReader dr;
         DBConnection dbcon = new DBConnection();
         // string store = "POS SYSTEM Software Solution";
         // string address = "258/B Colombo9,Srilanka";

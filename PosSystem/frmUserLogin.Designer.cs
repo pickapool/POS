@@ -104,7 +104,6 @@ namespace PosSystem
             this.txtPass.Multiline = true;
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.PromptText = "Passowrd";
             this.txtPass.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtPass.SelectedText = "";
             this.txtPass.SelectionLength = 0;
@@ -139,7 +138,6 @@ namespace PosSystem
             this.txtUser.Multiline = true;
             this.txtUser.Name = "txtUser";
             this.txtUser.PasswordChar = '\0';
-            this.txtUser.PromptText = "User Name";
             this.txtUser.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtUser.SelectedText = "";
             this.txtUser.SelectionLength = 0;

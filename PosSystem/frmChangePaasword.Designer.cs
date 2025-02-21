@@ -113,7 +113,6 @@ namespace PosSystem
             this.txtConfirm.Multiline = true;
             this.txtConfirm.Name = "txtConfirm";
             this.txtConfirm.PasswordChar = '*';
-            this.txtConfirm.PromptText = "Confirm Passowrd";
             this.txtConfirm.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtConfirm.SelectedText = "";
             this.txtConfirm.SelectionLength = 0;
@@ -148,7 +147,6 @@ namespace PosSystem
             this.txtNew.Multiline = true;
             this.txtNew.Name = "txtNew";
             this.txtNew.PasswordChar = '*';
-            this.txtNew.PromptText = "New Passowrd";
             this.txtNew.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtNew.SelectedText = "";
             this.txtNew.SelectionLength = 0;
@@ -183,7 +181,6 @@ namespace PosSystem
             this.txtOld.Multiline = true;
             this.txtOld.Name = "txtOld";
             this.txtOld.PasswordChar = '*';
-            this.txtOld.PromptText = "Old Passowrd";
             this.txtOld.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtOld.SelectedText = "";
             this.txtOld.SelectionLength = 0;
@@ -192,7 +189,7 @@ namespace PosSystem
             this.txtOld.Size = new System.Drawing.Size(267, 28);
             this.txtOld.TabIndex = 19;
             this.txtOld.UseSelectable = true;
-            this.txtOld.WaterMark = "Old Passowrd";
+            this.txtOld.WaterMark = "Old Password";
             this.txtOld.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtOld.WaterMarkFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 

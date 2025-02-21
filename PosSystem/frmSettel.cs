@@ -17,10 +17,8 @@ namespace PosSystem
 
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
-        SqlDataReader dr;
         DBConnection dbcon = new DBConnection();
         frmPOS fpos;
-        frmStoreSetting fstore;
         public frmSettel(frmPOS fp)
         {
             InitializeComponent();
@@ -53,7 +51,7 @@ namespace PosSystem
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
                 txtChange.Text = "0.00";
             }
         }

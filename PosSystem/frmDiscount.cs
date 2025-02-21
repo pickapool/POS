@@ -15,7 +15,6 @@ namespace PosSystem
     {
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
-        SqlDataReader dr;
         DBConnection dbcon = new DBConnection();
         string stitle = "Pos System";
         frmPOS f;
@@ -42,6 +41,7 @@ namespace PosSystem
                 txtAmount.Text = discount.ToString("#,##0.00");
             }catch(Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 txtAmount.Text = "0.00";
             }
         }

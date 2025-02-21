@@ -21,7 +21,6 @@ namespace PosSystem
         private double qty;
         private String transno;
         DBConnection dbcon = new DBConnection();
-        string stitle = "PosSystem";
         frmPOS fpos;
 
         public frmQty(frmPOS frmpos)

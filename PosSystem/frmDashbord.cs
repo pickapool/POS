@@ -16,7 +16,6 @@ namespace PosSystem
     {
 
         SqlConnection cn;
-        SqlCommand cm;
         DBConnection db = new DBConnection();
 
         public frmDashbord()

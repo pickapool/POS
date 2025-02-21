@@ -15,7 +15,6 @@ namespace PosSystem
     {
         SqlConnection cn;
         SqlCommand cm;
-        SqlDataReader dr;
         DBConnection db = new DBConnection();
         frmPOS f;
        
