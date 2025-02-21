@@ -67,7 +67,6 @@ namespace PosSystem
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblSname = new System.Windows.Forms.Label();
-            this.LblUser = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblDisplayTotal = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -91,6 +90,7 @@ namespace PosSystem
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.LblUser = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -113,7 +113,8 @@ namespace PosSystem
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnSales);
             this.panel1.Controls.Add(this.btnCancel);
@@ -128,8 +129,9 @@ namespace PosSystem
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(158)))), ((int)(((byte)(132)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -149,8 +151,9 @@ namespace PosSystem
             // 
             // btnSales
             // 
+            this.btnSales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            this.btnSales.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(158)))), ((int)(((byte)(132)))));
             this.btnSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSales.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -169,8 +172,9 @@ namespace PosSystem
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(158)))), ((int)(((byte)(132)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -189,8 +193,9 @@ namespace PosSystem
             // 
             // btnSattle
             // 
+            this.btnSattle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSattle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            this.btnSattle.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSattle.Enabled = false;
             this.btnSattle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(158)))), ((int)(((byte)(132)))));
             this.btnSattle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -210,8 +215,9 @@ namespace PosSystem
             // 
             // btnDiscount
             // 
+            this.btnDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            this.btnDiscount.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDiscount.Enabled = false;
             this.btnDiscount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(158)))), ((int)(((byte)(132)))));
             this.btnDiscount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -231,8 +237,9 @@ namespace PosSystem
             // 
             // btnSearch
             // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(132)))), ((int)(((byte)(227)))));
-            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(158)))), ((int)(((byte)(132)))));
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,8 +258,9 @@ namespace PosSystem
             // 
             // btnTrans
             // 
+            this.btnTrans.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTrans.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(196)))), ((int)(((byte)(15)))));
-            this.btnTrans.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnTrans.FlatAppearance.BorderSize = 0;
             this.btnTrans.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(158)))), ((int)(((byte)(132)))));
             this.btnTrans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -272,6 +280,8 @@ namespace PosSystem
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.txtQty);
             this.panel3.Controls.Add(this.label16);
@@ -288,7 +298,6 @@ namespace PosSystem
             // 
             // txtQty
             // 
-            this.txtQty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -339,7 +348,6 @@ namespace PosSystem
             // 
             // txtSearch
             // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -416,6 +424,8 @@ namespace PosSystem
             // 
             // panel6
             // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel6.Controls.Add(this.lblVat);
             this.panel6.Controls.Add(this.lblVatable);
@@ -505,6 +515,8 @@ namespace PosSystem
             // 
             // panel5
             // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(37)))), ((int)(((byte)(38)))));
             this.panel5.Controls.Add(this.lblPhone);
             this.panel5.Controls.Add(this.lblAddress);
@@ -550,19 +562,6 @@ namespace PosSystem
             this.lblSname.Text = "label4";
             this.lblSname.Visible = false;
             // 
-            // LblUser
-            // 
-            this.LblUser.AutoSize = true;
-            this.LblUser.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUser.ForeColor = System.Drawing.Color.White;
-            this.LblUser.Location = new System.Drawing.Point(565, 29);
-            this.LblUser.Name = "LblUser";
-            this.LblUser.Size = new System.Drawing.Size(95, 20);
-            this.LblUser.TabIndex = 3;
-            this.LblUser.Text = "POS SYSTEM";
-            this.LblUser.Visible = false;
-            this.LblUser.Click += new System.EventHandler(this.LblUser_Click);
-            // 
             // lblName
             // 
             this.lblName.AutoSize = true;
@@ -577,6 +576,7 @@ namespace PosSystem
             // 
             // lblDisplayTotal
             // 
+            this.lblDisplayTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDisplayTotal.Font = new System.Drawing.Font("Consolas", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDisplayTotal.ForeColor = System.Drawing.Color.LawnGreen;
             this.lblDisplayTotal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -601,6 +601,9 @@ namespace PosSystem
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
@@ -732,6 +735,8 @@ namespace PosSystem
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label2);
@@ -794,12 +799,27 @@ namespace PosSystem
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.BackColor = System.Drawing.Color.LightGray;
             this.pictureBox2.Location = new System.Drawing.Point(936, 338);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(245, 201);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
+            // 
+            // LblUser
+            // 
+            this.LblUser.AutoSize = true;
+            this.LblUser.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUser.ForeColor = System.Drawing.Color.White;
+            this.LblUser.Location = new System.Drawing.Point(565, 29);
+            this.LblUser.Name = "LblUser";
+            this.LblUser.Size = new System.Drawing.Size(95, 20);
+            this.LblUser.TabIndex = 3;
+            this.LblUser.Text = "POS SYSTEM";
+            this.LblUser.Visible = false;
+            this.LblUser.Click += new System.EventHandler(this.LblUser_Click);
             // 
             // frmPOS
             // 
@@ -820,6 +840,7 @@ namespace PosSystem
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmPOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPOS_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmPOS_KeyDown);
             this.panel1.ResumeLayout(false);
@@ -874,7 +895,6 @@ namespace PosSystem
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.Label lblName;
-        public System.Windows.Forms.Label LblUser;
         public MetroFramework.Controls.MetroTextBox txtQty;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
@@ -893,5 +913,6 @@ namespace PosSystem
         private System.Windows.Forms.DataGridViewImageColumn ColAdd;
         private System.Windows.Forms.DataGridViewImageColumn ColRemove;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        public System.Windows.Forms.Label LblUser;
     }
 }

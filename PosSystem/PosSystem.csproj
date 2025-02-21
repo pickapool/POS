@@ -52,10 +52,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>8189CE1412CF5858ED24BC886E1FB3FEEDCA429D</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>545C36D280DBC920CC1FBCFABC2E5742A540111F</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>PosSystem_2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>PosSystem_3_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -603,6 +603,7 @@
     <None Include="packages.config" />
     <None Include="PosSystem_1_TemporaryKey.pfx" />
     <None Include="PosSystem_2_TemporaryKey.pfx" />
+    <None Include="PosSystem_3_TemporaryKey.pfx" />
     <None Include="PosSystem_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
