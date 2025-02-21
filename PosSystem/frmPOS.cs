@@ -63,6 +63,7 @@ namespace PosSystem
             double discount = Double.Parse(lblDiscount.Text);
             double subTot = Double.Parse(lblTotal.Text);
             double sales = Double.Parse(lblTotal.Text) - discount;
+           // double sales = Double.Parse(lblTotal.Text);
             double vat = sales * dbcon.GetVal();
             double vatble = sales - vat;
             lblDisplayTotal.Text = vatble.ToString("#,##0.00");
@@ -324,8 +325,8 @@ namespace PosSystem
                 }
                 dr.Close();
                 cn.Close();
-                //lblDiscount.Text = discount.ToString("#,000.00");
-                lblTotal.Text = total.ToString("#,##0.00");
+                lblDiscount.Text = discount.ToString("N2");
+                lblTotal.Text = (total + discount).ToString("N2");
                 GetCartTotal();
                 if (hasrecord == true) { btnSattle.Enabled = true; btnDiscount.Enabled = true; btnCancel.Enabled = true; } else { btnSattle.Enabled = false; btnDiscount.Enabled = false; btnCancel.Enabled = false; }
 
@@ -422,6 +423,7 @@ namespace PosSystem
                 frmDiscount frm = new frmDiscount(this);
                 frm.lblID.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
                 frm.txtPrice.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString();
+                frm.lblItemName.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[3].Value.ToString();
                 frm.ShowDialog();
             } else
             {

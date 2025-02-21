@@ -41,6 +41,8 @@ namespace PosSystem
             this.label4 = new System.Windows.Forms.Label();
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblItemName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -89,7 +91,7 @@ namespace PosSystem
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 64);
+            this.label1.Location = new System.Drawing.Point(16, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 20);
             this.label1.TabIndex = 3;
@@ -98,7 +100,7 @@ namespace PosSystem
             // txtPrice
             // 
             this.txtPrice.Enabled = false;
-            this.txtPrice.Location = new System.Drawing.Point(166, 60);
+            this.txtPrice.Location = new System.Drawing.Point(167, 88);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(338, 27);
             this.txtPrice.TabIndex = 4;
@@ -107,7 +109,7 @@ namespace PosSystem
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 105);
+            this.label3.Location = new System.Drawing.Point(16, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 20);
             this.label3.TabIndex = 3;
@@ -115,7 +117,7 @@ namespace PosSystem
             // 
             // txtDiscount
             // 
-            this.txtDiscount.Location = new System.Drawing.Point(166, 103);
+            this.txtDiscount.Location = new System.Drawing.Point(167, 131);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(338, 27);
             this.txtDiscount.TabIndex = 4;
@@ -124,7 +126,7 @@ namespace PosSystem
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 148);
+            this.label4.Location = new System.Drawing.Point(16, 176);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 20);
             this.label4.TabIndex = 3;
@@ -133,7 +135,7 @@ namespace PosSystem
             // txtAmount
             // 
             this.txtAmount.Enabled = false;
-            this.txtAmount.Location = new System.Drawing.Point(166, 146);
+            this.txtAmount.Location = new System.Drawing.Point(167, 174);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(338, 27);
             this.txtAmount.TabIndex = 4;
@@ -145,7 +147,7 @@ namespace PosSystem
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(166, 184);
+            this.btnConfirm.Location = new System.Drawing.Point(167, 212);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(338, 30);
             this.btnConfirm.TabIndex = 15;
@@ -153,13 +155,33 @@ namespace PosSystem
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 20);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Item Name";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // lblItemName
+            // 
+            this.lblItemName.Enabled = false;
+            this.lblItemName.Location = new System.Drawing.Point(167, 46);
+            this.lblItemName.Name = "lblItemName";
+            this.lblItemName.Size = new System.Drawing.Size(338, 27);
+            this.lblItemName.TabIndex = 17;
+            // 
             // frmDiscount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(557, 237);
+            this.ClientSize = new System.Drawing.Size(557, 267);
             this.ControlBox = false;
+            this.Controls.Add(this.lblItemName);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.txtAmount);
@@ -197,5 +219,7 @@ namespace PosSystem
         public System.Windows.Forms.Button btnConfirm;
         public System.Windows.Forms.TextBox txtPrice;
         public System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox lblItemName;
     }
 }

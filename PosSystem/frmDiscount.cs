@@ -90,5 +90,10 @@ namespace PosSystem
                 btnConfirm_Click (sender, e);
             }
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
