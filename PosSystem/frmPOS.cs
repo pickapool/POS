@@ -417,11 +417,16 @@ namespace PosSystem
 
         private void btnDiscount_Click(object sender, EventArgs e)
         {
-            frmDiscount frm = new frmDiscount(this);
-            frm.lblID.Text = id;
-            frm.txtPrice.Text = price;
-            frm.ShowDialog();
-
+            if (dataGridView1.Rows.Count > 0)
+            {
+                frmDiscount frm = new frmDiscount(this);
+                frm.lblID.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                frm.txtPrice.Text = dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value.ToString();
+                frm.ShowDialog();
+            } else
+            {
+                MessageBox.Show("No rows selected!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 
