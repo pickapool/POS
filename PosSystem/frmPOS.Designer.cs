@@ -322,6 +322,7 @@ namespace PosSystem
             this.txtQty.MaxLength = 32767;
             this.txtQty.Name = "txtQty";
             this.txtQty.PasswordChar = '\0';
+            this.txtQty.PromptText = "Qty";
             this.txtQty.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtQty.SelectedText = "";
             this.txtQty.SelectionLength = 0;
@@ -369,6 +370,7 @@ namespace PosSystem
             this.txtSearch.MaxLength = 32767;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
+            this.txtSearch.PromptText = "Scan Barcode Here";
             this.txtSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtSearch.SelectedText = "";
             this.txtSearch.SelectionLength = 0;
@@ -647,6 +649,7 @@ namespace PosSystem
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(2, 148);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -661,6 +664,7 @@ namespace PosSystem
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column1.HeaderText = "#";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 43;
             // 
             // Column2
@@ -668,6 +672,7 @@ namespace PosSystem
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column2.HeaderText = "ID";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Visible = false;
             this.Column2.Width = 49;
             // 
@@ -675,6 +680,7 @@ namespace PosSystem
             // 
             this.Column8.HeaderText = "PCode";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             this.Column8.Visible = false;
             // 
             // Column3
@@ -682,6 +688,7 @@ namespace PosSystem
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column3.HeaderText = "DESCRIPTION";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
@@ -690,6 +697,7 @@ namespace PosSystem
             this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column4.HeaderText = "PRICE";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Width = 73;
             // 
             // colQty
@@ -699,6 +707,7 @@ namespace PosSystem
             this.colQty.DefaultCellStyle = dataGridViewCellStyle3;
             this.colQty.HeaderText = "QTY";
             this.colQty.Name = "colQty";
+            this.colQty.ReadOnly = true;
             this.colQty.Width = 61;
             // 
             // Column7
@@ -707,6 +716,7 @@ namespace PosSystem
             this.Column7.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column7.HeaderText = "DISCOUNT";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column6
             // 
@@ -715,6 +725,7 @@ namespace PosSystem
             this.Column6.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column6.HeaderText = "TOTAL";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             this.Column6.Width = 75;
             // 
             // ColAdd
@@ -723,6 +734,7 @@ namespace PosSystem
             this.ColAdd.HeaderText = "";
             this.ColAdd.Image = ((System.Drawing.Image)(resources.GetObject("ColAdd.Image")));
             this.ColAdd.Name = "ColAdd";
+            this.ColAdd.ReadOnly = true;
             this.ColAdd.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColAdd.Width = 5;
             // 
@@ -732,6 +744,7 @@ namespace PosSystem
             this.ColRemove.HeaderText = "";
             this.ColRemove.Image = ((System.Drawing.Image)(resources.GetObject("ColRemove.Image")));
             this.ColRemove.Name = "ColRemove";
+            this.ColRemove.ReadOnly = true;
             this.ColRemove.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColRemove.Width = 5;
             // 
@@ -741,6 +754,7 @@ namespace PosSystem
             this.Delete.HeaderText = "";
             this.Delete.Image = ((System.Drawing.Image)(resources.GetObject("Delete.Image")));
             this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
             this.Delete.Width = 5;
             // 
             // panel2
