@@ -80,22 +80,32 @@ namespace PosSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if(String.IsNullOrEmpty(txtQty.Text.Trim()))
+            {
+                MessageBox.Show("Stock on hand Quantity should be greater than from adjustment qty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (String.IsNullOrEmpty(cbCommands.Text.Trim()))
+            {
+                MessageBox.Show("Please select a command.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             try
             {
-                if (int.Parse(txtQty.Text)> _qty)
+                if (double.Parse(txtQty.Text)> _qty)
                 {
                     MessageBox.Show("Stock on hand Quantity should be greater than from adjustment qty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 if(cbCommands.Text == "Remove from Inventory")
                 {
-                    sqlStatement("update TblProduct1 set qty = (qty - " + int.Parse(txtQty.Text) + ") where pcode like '" + txtPcode.Text + "'");
+                    sqlStatement("update TblProduct1 set qty = (qty - " + double.Parse(txtQty.Text) + ") where pcode like '" + txtPcode.Text + "'");
                 } 
                 {
-                    sqlStatement("update TblProduct1 set qty = (qty + " + int.Parse(txtQty.Text) + ") where pcode like '" + txtPcode.Text + "'");
+                    sqlStatement("update TblProduct1 set qty = (qty + " + double.Parse(txtQty.Text) + ") where pcode like '" + txtPcode.Text + "'");
                 }
 
-                sqlStatement("insert into tblAdjustment (referenceno, pcode, qty, action, remarks, sdate ,[user])values('" + txtRef.Text + "', '" + txtPcode.Text + "','" + int.Parse(txtQty.Text) + "','" + cbCommands.Text + "','" + txtRemarks.Text + "','" + DateTime.Now.ToShortDateString()+"','"+txtUser.Text+"')");
+                sqlStatement("insert into tblAdjustment (referenceno, pcode, qty, action, remarks, sdate ,[user])values('" + txtRef.Text + "', '" + txtPcode.Text + "','" + double.Parse(txtQty.Text) + "','" + cbCommands.Text + "','" + txtRemarks.Text + "','" + DateTime.Now.ToShortDateString()+"','"+txtUser.Text+"')");
                 MessageBox.Show("Stock has been successfully Adjusted","Process completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadRecords();
                 Clear();
