@@ -75,6 +75,7 @@ namespace PosSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
+            panel3.Controls.Clear();
             frmCategoryList frm = new frmCategoryList();
             frm.TopLevel = false;
             panel3.Controls.Add(frm);
@@ -85,6 +86,7 @@ namespace PosSystem
 
         private void btnProduct_Click(object sender, EventArgs e)
         {
+            panel3.Controls.Clear();
             frmProduct_List frm = new frmProduct_List();
             frm.TopLevel = false;
             panel3.Controls.Add(frm);
@@ -95,6 +97,7 @@ namespace PosSystem
 
         private void btnStock_Click(object sender, EventArgs e)
         {
+            panel3.Controls.Clear();
             frmStockin frm = new frmStockin();     
             frm.TopLevel = false;
             panel3.Controls.Add(frm);
@@ -106,6 +109,7 @@ namespace PosSystem
 
         private void button8_Click(object sender, EventArgs e)
         {
+            panel3.Controls.Clear();
             frmUserAccount frm = new frmUserAccount (this);
             frm.TopLevel = false;
             panel3.Controls.Add(frm);
@@ -117,6 +121,7 @@ namespace PosSystem
 
         private void btnSalesHistory_Click(object sender, EventArgs e)
         {
+            panel3.Controls.Clear();
             frmSoldItems frm = new frmSoldItems();
             frm.ShowDialog();
          
@@ -125,6 +130,7 @@ namespace PosSystem
 
         private void button6_Click(object sender, EventArgs e)
         {
+            panel3.Controls.Clear();
             frmRecords frm = new frmRecords();
             frm.TopLevel = false;
             frm.LoadCriticalItems();
@@ -138,6 +144,7 @@ namespace PosSystem
 
         private void button7_Click(object sender, EventArgs e)
         {
+            panel3.Controls.Clear();
             frmStoreSetting frm = new frmStoreSetting();
             frm.LoadRecord();
             frm.ShowDialog();
@@ -149,21 +156,23 @@ namespace PosSystem
         }
 
         public void MyDashbord()
-            {
-                 frmDashbord f = new frmDashbord();
-                 f.TopLevel = false;
-                 panel3.Controls.Add(f);
-                 f.lblDailySales.Text = dbcon.DailySales().ToString("#,##0.00");
-                 f.lblProduct.Text = dbcon.ProductLine().ToString();
-                 f.lblStock.Text = dbcon.StockOnHand().ToString();
-                 f.lblCriticalItems.Text = dbcon.CraticalItems().ToString();
-                 f.BringToFront();
-                 f.Show();
-            }
+        {
+            panel3.Controls.Clear();
+            frmDashbord f = new frmDashbord();
+            f.TopLevel = false;
+            panel3.Controls.Add(f);
+            f.lblDailySales.Text = dbcon.DailySales().ToString("N2");
+            f.lblProduct.Text = dbcon.ProductLine().ToString();
+            f.lblStock.Text = dbcon.StockOnHand().ToString();
+            f.lblCriticalItems.Text = dbcon.CraticalItems().ToString();
+            f.BringToFront();
+            f.Show();
+        }
 
         private void btnVendor_Click(object sender, EventArgs e)
         {
-           frm_VendorList f = new frm_VendorList();
+            panel3.Controls.Clear();
+            frm_VendorList f = new frm_VendorList();
             f.TopLevel = false;
             panel3.Controls.Add(f);
             f.LoadRecords();
@@ -174,10 +183,10 @@ namespace PosSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            panel3.Controls.Clear();
             frmAdjustment f = new frmAdjustment(this);
             f.LoadRecords();
-           f.txtUser.Text = lblUser.Text;
+            f.txtUser.Text = lblUser.Text;
             f.referenceNo();
             f.ShowDialog();
 

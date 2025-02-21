@@ -54,7 +54,7 @@ namespace PosSystem
             while (dr.Read())
             {
                 i++;
-                dataGridView1.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["qty"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00")); 
+                dataGridView1.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["qty"].ToString(), Double.Parse(dr["total"].ToString()).ToString("N2")); 
             }
             dr.Close();
             cn.Close();
@@ -83,14 +83,14 @@ namespace PosSystem
                 while (dr.Read())
                 {
                     i++;
-                    dataGridView2.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), Double.Parse(dr["price"].ToString()).ToString("#,##0.00"), dr["tot_qty"].ToString(), dr["tot_disc"].ToString(),Double.Parse( dr["total"].ToString()).ToString("#,##0.00"));
+                    dataGridView2.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), Double.Parse(dr["price"].ToString()).ToString("N2"), dr["tot_qty"].ToString(), dr["tot_disc"].ToString(),Double.Parse( dr["total"].ToString()).ToString("N2"));
                 }
                 dr.Close();
                 cn.Close();
 
                 cn.Open();
                 cm = new SqlCommand("select isnull(sum (total),0) from tblCart1  where status like 'Sold' and sdate between '" + dateTimePicker4.Value.ToString() + "' and '" + dateTimePicker3.Value.ToString() + "'", cn);
-                lblTotal.Text = Double.Parse(cm.ExecuteScalar().ToString()).ToString("#,##0.00");
+                lblTotal.Text = Double.Parse(cm.ExecuteScalar().ToString()).ToString("N2");
                 cn.Close();
             }
             catch (Exception ex)
@@ -277,8 +277,8 @@ namespace PosSystem
             if (cdTopSelling.Text == "Short by Qty") { chart.Series[0].YValueMembers ="qty"; }
             if (cdTopSelling.Text == "Short by Total Amount") { chart.Series[0].YValueMembers = "total"; }
             chart.Series[0].IsValueShownAsLabel = true;
-             if (cdTopSelling.Text == "Short by Total Amount") { chart.Series[0].LabelFormat = ("#,##0.00"); }
-            if (cdTopSelling.Text == "Short by Qty") { chart.Series[0].LabelFormat = ("#,##0.00"); }
+             if (cdTopSelling.Text == "Short by Total Amount") { chart.Series[0].LabelFormat = ("N2"); }
+            if (cdTopSelling.Text == "Short by Qty") { chart.Series[0].LabelFormat = ("N2"); }
             cn.Close();
         }
 
@@ -295,14 +295,14 @@ namespace PosSystem
                 while (dr.Read())
                 {
                     i++;
-                    dataGridView2.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), Double.Parse(dr["price"].ToString()).ToString("#,##0.00"), dr["tot_qty"].ToString(), dr["tot_disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
+                    dataGridView2.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), Double.Parse(dr["price"].ToString()).ToString("N2"), dr["tot_qty"].ToString(), dr["tot_disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("N2"));
                 }
                 dr.Close();
                 cn.Close();
 
                 cn.Open();
                 cm = new SqlCommand("select isnull(sum (total),0) from tblCart1  where status like 'Sold' and sdate between '" + dateTimePicker4.Value.ToString() + "' and '" + dateTimePicker3.Value.ToString() + "'", cn);
-                lblTotal.Text = Double.Parse(cm.ExecuteScalar().ToString()).ToString("#,##0.00");
+                lblTotal.Text = Double.Parse(cm.ExecuteScalar().ToString()).ToString("N2");
                 cn.Close();
             }
             catch (Exception ex)
