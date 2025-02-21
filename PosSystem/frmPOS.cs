@@ -324,7 +324,7 @@ namespace PosSystem
                 }
                 dr.Close();
                 cn.Close();
-                lblDiscount.Text = discount.ToString("#,000.00");
+                //lblDiscount.Text = discount.ToString("#,000.00");
                 lblTotal.Text = total.ToString("#,##0.00");
                 GetCartTotal();
                 if (hasrecord == true) { btnSattle.Enabled = true; btnDiscount.Enabled = true; btnCancel.Enabled = true; } else { btnSattle.Enabled = false; btnDiscount.Enabled = false; btnCancel.Enabled = false; }
